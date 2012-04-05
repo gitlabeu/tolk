@@ -125,6 +125,11 @@ h3 span {
   color: #888;
 }
 
+h4 {
+  font-weight: bold;
+  color: gray;
+}
+
 ul.locales {
   margin: 25px 0;
 }
@@ -226,6 +231,11 @@ div.updated {
   padding: 1px 8px 4px;
 }
 
+span.list-key {
+  display: inline-block;
+  width: 90px;
+}
+
 table.translations div.original span.key {
   margin: 0 0 -2px;
   padding: 0;
@@ -277,7 +287,7 @@ table.translations textarea.locale {
 }
 
 table.translations span.key {
-  color: #aaa;
+  color: gray;
   font-size: 9px;
   display: block;
 }

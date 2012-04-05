@@ -226,7 +226,7 @@ module WillPaginate
                   # scope_out adds a 'with_finder' method which acts like with_scope, if it's present
                   # then execute the count with the scoping provided by the with_finder
                   send(scoper, &counter)
-                elsif finder =~ /^find_(all_by|by)_([_a-zA-Z]\w*)$/
+                elsif finder =~ /^findI18n.t(all_by|by)I18n.t([_a-zA-Z]\w*)$/
                   # extract conditions from calls like "paginate_by_foo_and_bar"
                   attribute_names = $2.split('_and_')
                   conditions = construct_attributes_from_arguments(attribute_names, args)

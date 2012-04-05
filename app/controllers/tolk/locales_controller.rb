@@ -8,6 +8,7 @@ module Tolk
     end
   
     def show
+      @locales = Tolk::Locale.secondary_locales
       respond_to do |format|
         format.html do
           @phrases = @locale.phrases_without_translation(params[:page])
@@ -18,7 +19,28 @@ module Tolk
     end
 
     def update
-      @locale.translations_attributes = params[:translations]
+      # 
+      # what a hack
+      #
+      trans = []
+      params[:translations] ||= []
+
+      params[:translations].each do |t|
+        if t[:id].present?
+          if t[:text].present?
+            trans << t
+          else
+            Tolk::Translation.find(t[:id]).destroy
+          end
+        else
+          Tolk::Translation.create(t)
+        end
+      end
+      # 
+      # end of what a hack
+      #
+
+      @locale.translations_attributes = trans
       @locale.save
       redirect_to request.referrer
     end

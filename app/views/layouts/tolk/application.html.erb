@@ -18,6 +18,10 @@
 
 <body>
   <div id="container">
+    <a href='<%= tolk_root_path %>' style='display: block; margin-bottom: 35px'>
+      <img src='/images/lux_express_logo.png' height='60px' />
+    </a>
+
     <div id="head">
       <h1><span class="home"><%= link_to "Tolk", tolk_root_path %></span><%= yield :locale %></h1>
     </div>
@@ -27,6 +31,12 @@
   <script type="text/javascript">
     $$('td textarea').each(function(element) {
       element.setStyle({height: element.up('td').measure('height')+'px'});
+    });
+  </script>
+
+  <script type="text/javascript">
+    document.observe("dom:loaded", function() {
+      <%= yield :prototype %>
     });
   </script>
 </body>

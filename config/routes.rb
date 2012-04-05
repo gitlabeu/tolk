@@ -3,5 +3,6 @@ ActionController::Routing::Routes.draw do |map|
     tolk.root :controller => 'locales'
     tolk.resources :locales, :member => {:all => :get, :updated => :get}
     tolk.resource :search
+    tolk.resource :publish
   end
 end

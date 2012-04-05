@@ -19,17 +19,39 @@
   <p>No locales yet.</p>
 
 <% end %>
-<% form_for(Tolk::Locale.new) do |f| %>
-<div class="submit">
-  <%= f.error_messages %>
-  <p>
-    <%= f.label "Add a new Locale" %>
-    <select id="select_tolk_locale_name" name="tolk_locale[name]">
-      <%= options_for_select tolk_locale_selection %>
-    </select>
-    <%= f.submit 'Add' %>
-  </p>
-</div>
+
+<% form_tag '/tolk/publish' do %>
+  <div class="submit">
+    <p>
+    <%= submit_tag 'Publish to test enviroment', :id => 'publish-button' %>
+    <%= image_tag 'ajax-loader.gif', 
+      :id => 'loader', :width => '15px', 
+      :style => 'display: none; margin: 0 0 -2px 2px' %>
+      <% if flash[:success].present? %>
+        <%= flash[:success] %>
+      <% end %>
+    </p>
+    <% content_for :prototype do %>
+      $('publish-button').observe('click', function(e) {
+        $('loader').show();
+        e.target.disabled = true;
+      })
+    <% end %>
+  </div>
 <% end %>
 
+<% if params[:admin].present? %>
+  <% form_for(Tolk::Locale.new) do |f| %>
+  <div class="submit">
+    <%= f.error_messages %>
+    <p>
+      <%= f.label "Add a new Locale" %>
+      <select id="select_tolk_locale_name" name="tolk_locale[name]">
+        <%= options_for_select tolk_locale_selection %>
+      </select>
+      <%= f.submit 'Add' %>
+    </p>
+  </div>
+  <% end %>
+<% end %>
 
