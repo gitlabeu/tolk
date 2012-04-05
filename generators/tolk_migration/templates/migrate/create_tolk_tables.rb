@@ -24,6 +24,10 @@ class CreateTolkTables < ActiveRecord::Migration
       t.datetime :updated_at
     end
 
+    # Holli-molly, this was needed for Postgres to get migration working
+    rename_column :tolk_translations, :phrase_temp, :phrase_id
+    rename_column :tolk_translations, :locale_temp, :locale_id
+
     add_index :tolk_translations, [:phrase_id, :locale_id], :unique => true
   end
 
