@@ -24,7 +24,7 @@ To setup :
 
   4) Add custom logo
   
-  Make sure your master application has logo file at master app: /public/images/logo.png
+  Make sure your application's public directory has logo.png file at: /public/images/logo.png
 
   And you're all set!
 
