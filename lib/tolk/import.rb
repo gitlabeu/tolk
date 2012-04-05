@@ -42,6 +42,5 @@ module Tolk
 
       self.class.flat_hash(YAML::load(IO.read(locale_file))[self.name])
     end
-
   end
 end

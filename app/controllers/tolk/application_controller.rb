@@ -8,12 +8,12 @@ module Tolk
 
     def authenticate
       #self.authenticator.bind(self).call if self.authenticator && self.authenticator.respond_to?(:call)
-      if !['priit', 'testlab'].include?(Socket.gethostname)
+      if !(::ALLOWED_HOSTNAMES.include?(Socket.gethostname))
         return render :text => 'No permission', :status => 403 
       end
 
       authenticate_or_request_with_http_basic do |user_name, password|
-        user_name == 'lux' && password == 'luxtranslation'
+        user_name == ::USERNAME && password == ::PASSWORD
       end
 
     end

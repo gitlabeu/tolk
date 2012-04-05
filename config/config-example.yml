@@ -1,0 +1,8 @@
+---
+username: tolk
+password: please-change-password
+
+allowed_hostnames:
+  - priit
+  - veiko
+  - testlux

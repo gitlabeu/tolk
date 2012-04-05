@@ -4,19 +4,27 @@ Tolk is a Rails engine designed to facilitate the translators doing the dirty wo
 
 To install :
 
-  $ script/plugin install git://github.com/gitlabeu/tolk.git
+  $ script/plugin install git://github.com/dhh/tolk.git
 
 To setup :
+  1) Copy example config file and update required:
+  $ cd vendor/plugins/tolk/config
+  $ cp config-example.yml config.yml
+  $ vi config.yml
 
-  1) Generate tolk migration and migrate your database :
+  2) Generate tolk migration and migrate your database :
 
   $ script/generate tolk_migration
   $ rake db:migrate
 
-  2) Setup Tolk assets by creating a symlink to tolk/public/tolk inside your application's public directory :
+  3) Setup Tolk assets by creating a symlink to tolk/public/tolk inside your application's public directory :
 
   $ cd public
   $ ln -s ../vendor/plugins/tolk/public/tolk tolk
+
+  4) Add custom logo
+  
+  Make sure your master application has logo file at master app: /public/images/logo.png
 
   And you're all set!
 

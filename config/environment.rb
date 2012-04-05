@@ -14,3 +14,4 @@ end
 
 $KCODE = 'UTF8'
 require 'ya2yaml'
+
