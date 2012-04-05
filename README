@@ -4,7 +4,7 @@ Tolk is a Rails engine designed to facilitate the translators doing the dirty wo
 
 To install :
 
-  $ script/plugin install git://github.com/dhh/tolk.git
+  $ script/plugin install git://github.com/gitlabeu/tolk.git
 
 To setup :
   1) Copy example config file and update required:
