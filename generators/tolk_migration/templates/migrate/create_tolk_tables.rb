@@ -15,8 +15,10 @@ class CreateTolkTables < ActiveRecord::Migration
     end
 
     create_table :tolk_translations do |t|
-      t.integer  :phrase_id
-      t.integer  :locale_id
+      # Holli-molly, this was needed for Postgres to get migration working
+      t.integer  :phrase_temp
+      t.integer  :locale_temp
+
       t.text     :text
       t.text     :previous_text
       t.boolean  :primary_updated, :default => false
